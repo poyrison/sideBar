@@ -1,38 +1,136 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.container {
+  background-image: url("/public/img/pray.png");
+  background-size: cover;
+  height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  flex-direction: column;
 }
 
-.App-link {
-  color: #61dafb;
+.sidebar {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  right: -100%;
+  /* box-shadow: -7px 0px 5px rgba(0, 0, 0, 0.5); */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.open {
+  transform: translateX(-70%);
+  transition: transform 0.5s;
+}
+.closed {
+  transform: translateX(100%);
+  transition: transform 0.5s;
+}
+
+.open,
+.closed {
+  transform: 0.5s;
+}
+
+.menu1 div,
+.menu2 div {
+  cursor: pointer;
+  width: 120px;
+  height: 120px;
+  margin: 10px auto 60px auto;
+  position: relative;
+  border-radius: 30px;
+  background: #ff4e50; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to left,
+    #f9d423,
+    #ff4e50
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to left,
+    #f9d423,
+    #ff4e50
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.menu1 span,
+.menu2 span {
+  background: #fff;
+  width: 70%;
+  height: 7px;
+  border-radius: 5px;
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: 0.5s;
+  box-shadow: -3px 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+.menu2 span:nth-child(1) {
+  left: 35%;
+  width: 40%;
+}
+.menu2 span:nth-child(3) {
+  left: 65%;
+  width: 40%;
+}
+
+.menu1 span:nth-child(1),
+.menu2 span:nth-child(1) {
+  top: 30%; /* 첫 번째 span 위치 */
+}
+
+.menu1 span:nth-child(2),
+.menu2 span:nth-child(2) {
+  top: 50%; /* 두 번째 span 위치 */
+}
+
+.menu1 span:nth-child(3),
+.menu2 span:nth-child(3) {
+  top: 70%; /* 세 번째 span 위치 */
+}
+
+/* version_1 */
+.active1 span:nth-child(1) {
+  transform: translate(-50%, 300%) rotate(135deg);
+  box-shadow: 5px -3px 5px rgba(0, 0, 0, 0.5);
+}
+.active1 span:nth-child(2) {
+  width: 0;
+}
+.active1 span:nth-child(3) {
+  transform: translate(-50%, -380%) rotate(-135deg);
+  box-shadow: -3px -5px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* version_2 */
+.active2 span:nth-child(1) {
+  z-index: 1;
+  transform: translate(-20px, 33px) rotate(-225deg);
+  box-shadow: 5px -3px 5px rgba(0, 0, 0, 0.5);
+}
+.active2 span:nth-child(2) {
+  z-index: 1000;
+  transform: translate(-50%, -60%) rotate(225deg);
+  box-shadow: -3px -5px 5px rgba(0, 0, 0, 0.5);
+}
+.active2 span:nth-child(3) {
+  z-index: 0;
+  transform: translate(-30px, -41px) rotate(-225deg);
+  box-shadow: 5px -3px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* version_3 */
+.active3 span:nth-child(1) {
+  transform: translate() rotate();
+}
+.active3 span:nth-child(2) {
+  transform: translate() rotate();
+}
+.active3 span:nth-child(3) {
+  transform: translate() rotate();
 }
