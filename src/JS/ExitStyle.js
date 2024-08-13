@@ -8,17 +8,35 @@ const ExitStyle = ({ useState }) => {
   };
 
   const items = [
-    {
-      num: 1,
-    },
+    // {
+    //   num: 1,
+    // },
     {
       num: 2,
     },
   ];
 
+  const sidebarItems = [
+    {
+      name: "Home",
+      link: "/",
+    },
+    { name: "Map", link: "https://map.naver.com/" },
+    { name: "Finance", link: "https://finance.naver.com/" },
+    { name: "News", link: "https://news.naver.com/" },
+  ];
+
   return (
     <div className="container">
-      <div className={`sidebar ${sidebar}`}></div>
+      <div className={`sidebar ${sidebar}`}>
+        {sidebarItems.map((sidebarItem, i) => {
+          return (
+            <a href={sidebarItem.link} className="sidebar-item-box" key={i}>
+              <h3>{sidebarItem.name}</h3>
+            </a>
+          );
+        })}
+      </div>
       {items.map((item, i) => {
         return (
           <div key={i}>
